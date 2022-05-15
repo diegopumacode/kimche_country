@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function SearchInput({ placeholder, onChange }) {
+export default function SearchInput({ placeholder, onChange, millisecondsSearch = 300 }) {
+  let timer;
   const handleChange = (e) => {
-    onChange(e.target.value);
+    e.persist();
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      onChange(e.target.value);
+    }, millisecondsSearch);
   };
 
   return (
