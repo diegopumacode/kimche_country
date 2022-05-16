@@ -7,7 +7,6 @@ export const initialState = {
   filterCountries: [],
   countries: [],
   type: TYPEFILTER.CONTINENT,
-  textSearch: '',
   loading: true,
 };
 
@@ -20,9 +19,15 @@ export const searchCountryReducer = (state, action) => {
       };
     }
     case 'SEARCH_BY_NAME': {
-      const filterByName = action.payload.length > 0 ? state.countries.filter(({ name }) => name.toLowerCase().match(`^${action.payload.toLowerCase()}`)) : [];
-      return { ...state, filterCountries: filterByName, textSearch: action.payload };
+      const pattern = /^[A-Z-a-z]+$/i;
+      if (pattern.test(action.payload)) {
+        const filterByName = action.payload.length > 0 ? state.countries.filter(({ name }) => name.toLowerCase().match(`^${action.payload.toLowerCase()}`)) : [];
+        return { ...state, filterCountries: filterByName };
+      }
+      return { ...state, filterCountries: [] };
     }
+    case 'SET_TYPE':
+      return { ...state, type: action.payload };
     default:
       return state;
   }
