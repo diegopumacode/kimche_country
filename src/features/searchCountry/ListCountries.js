@@ -1,32 +1,15 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import { groupBy } from 'lodash';
 import Alert from '../../components/Alert';
 import Country from '../../components/Country';
 
-const groupByType = (data, type) => data.reduce((acc, obj) => {
-  const key = obj[type];
-  switch (type) {
-    case 'continent': {
-      if (!acc[key.name]) {
-        acc[key.name] = [];
-      }
-      acc[key.name].push(obj);
-      return acc;
-    }
-    case 'languages': {
-      key.forEach((element) => {
-        if (!acc[element.name]) {
-          acc[element.name] = [];
-        }
-        acc[element.name].push(obj);
-      });
-      return acc;
-    }
-
-    default:
-      return acc;
+const groupByType = (countries, type) => {
+  if (type === 'continent') {
+    return groupBy(countries, 'continent.name');
   }
-}, {});
+  return groupBy(countries, (country) => country.languages.map(({ name }) => name));
+};
 
 export default function ListCountries({ type, countries = [] }) {
   const groupedCountries = groupByType(countries, type);
@@ -34,7 +17,6 @@ export default function ListCountries({ type, countries = [] }) {
     key,
     data: groupedCountries[key],
   })), [groupedCountries]);
-
   return (
     <div>
       {

@@ -21,7 +21,7 @@ export const searchCountryReducer = (state, action) => {
     case 'SEARCH_BY_NAME': {
       const pattern = /^[A-Z-a-z]+$/i;
       if (pattern.test(action.payload)) {
-        const filterByName = action.payload.length > 0 ? state.countries.filter(({ name }) => name.toLowerCase().match(`^${action.payload.toLowerCase()}`)) : [];
+        const filterByName = action.payload.length > 0 ? state.countries.filter(({ name }) => name.toLowerCase().match(`^${action.payload.toLowerCase()}`)) : state.countries;
         return { ...state, filterCountries: filterByName };
       }
       return { ...state, filterCountries: [] };
