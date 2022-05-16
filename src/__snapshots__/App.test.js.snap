@@ -18,6 +18,28 @@ Object {
             Search by country: here you will get an overview of countries by continent and languages
           </p>
         </div>
+        <div
+          class="sc-hKMtZM cetodB"
+        >
+          <span>
+            🔎
+          </span>
+          <input
+            placeholder="Name Country"
+          />
+        </div>
+        <div
+          class="sc-dkzDqf exHxbp"
+        >
+          <img
+            alt="loadingCountry"
+            src="/images/undraw_hiking_re.svg"
+            width="200"
+          />
+          <p>
+            ... Loading Countries
+          </p>
+        </div>
       </div>
     </div>
   </body>,
@@ -33,6 +55,28 @@ Object {
         </h1>
         <p>
           Search by country: here you will get an overview of countries by continent and languages
+        </p>
+      </div>
+      <div
+        class="sc-hKMtZM cetodB"
+      >
+        <span>
+          🔎
+        </span>
+        <input
+          placeholder="Name Country"
+        />
+      </div>
+      <div
+        class="sc-dkzDqf exHxbp"
+      >
+        <img
+          alt="loadingCountry"
+          src="/images/undraw_hiking_re.svg"
+          width="200"
+        />
+        <p>
+          ... Loading Countries
         </p>
       </div>
     </div>

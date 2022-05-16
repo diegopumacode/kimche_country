@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function SearchInput({ placeholder, onChange, millisecondsSearch = 300 }) {
+export default function SearchInput({
+  placeholder, onChange, millisecondsSearch = 300,
+}) {
   let timer;
   const handleChange = (e) => {
     e.persist();
