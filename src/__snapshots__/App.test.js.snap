@@ -5,32 +5,36 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <h2>
-          My first Apollo app
-           
-          <span
-            aria-label="Rocket"
-            role="img"
-          >
-            🚀
-          </span>
-        </h2>
+      <div
+        class="sc-gsnTZi kaPKWg"
+      >
+        <div
+          class="sc-bczRLJ haIITE"
+        >
+          <h1>
+            Country Search
+          </h1>
+          <p>
+            Search by country: here you will get an overview of countries by continent and languages
+          </p>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div>
-      <h2>
-        My first Apollo app
-         
-        <span
-          aria-label="Rocket"
-          role="img"
-        >
-          🚀
-        </span>
-      </h2>
+    <div
+      class="sc-gsnTZi kaPKWg"
+    >
+      <div
+        class="sc-bczRLJ haIITE"
+      >
+        <h1>
+          Country Search
+        </h1>
+        <p>
+          Search by country: here you will get an overview of countries by continent and languages
+        </p>
+      </div>
     </div>
   </div>,
   "debug": [Function],
