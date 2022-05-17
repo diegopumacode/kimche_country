@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import { groupBy } from 'lodash';
