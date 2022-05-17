@@ -31,7 +31,7 @@ export const COUNTRIES = gql`
 `;
 
 export default function SearchCountry() {
-  const { loading, data } = useQuery(COUNTRIES);
+  const { loading, data, error } = useQuery(COUNTRIES);
   const [state, dispatch] = useReducer(searchCountryReducer, initialState);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function SearchCountry() {
       {
         state.loading
           ? (
-            <Alert message="... Loading Countries" src="/images/undraw_hiking_re.svg" altText="loadingCountry" />
+            <Alert message={error ? 'Error, list of countries not available' : '... Loading Countries'} src="/images/undraw_hiking_re.svg" altText="loadingCountry" />
           )
           : <ListCountries countries={state.filterCountries} type={state.type} />
       }
