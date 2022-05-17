@@ -29,6 +29,24 @@ Object {
           />
         </div>
         <div
+          class="sc-ftvSup kJSFLn"
+        >
+          <p>
+            search By
+            :
+          </p>
+          <button
+            class="sc-papXJ eiYCYl"
+          >
+            Continent
+          </button>
+          <button
+            class="sc-papXJ gpeNa-D"
+          >
+            Languages
+          </button>
+        </div>
+        <div
           class="sc-dkzDqf exHxbp"
         >
           <img
@@ -66,6 +84,24 @@ Object {
         <input
           placeholder="Name Country"
         />
+      </div>
+      <div
+        class="sc-ftvSup kJSFLn"
+      >
+        <p>
+          search By
+          :
+        </p>
+        <button
+          class="sc-papXJ eiYCYl"
+        >
+          Continent
+        </button>
+        <button
+          class="sc-papXJ gpeNa-D"
+        >
+          Languages
+        </button>
       </div>
       <div
         class="sc-dkzDqf exHxbp"
