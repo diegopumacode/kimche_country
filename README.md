@@ -37,3 +37,29 @@ Acá van algunas cosas que pueden ser útiles (o no 👀):
 - [Eslint](https://eslint.org/)
 - [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [Husky](https://www.npmjs.com/package/husky)
+
+## Problema
+
+"La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc."
+
+###  Respuesta
+
+Propondría poder fragmentar la base de datos, esta consiste en dividir esta en múltiples base de datos(fragmento), y cada fragmento contendría su propio subconjunto de datos.
+
+Para esta se tendría que crear una tabla maestra que indique la distribucion de data en cada fragmento,mediante un identificador.
+
+Esto ayudaría  a que la base de datos sea mas escalable(teniendo en cuenta en que se agregaran mas alumnos y por ende mas asistencias en el futuro).
+
+Ya al actualizar la información seria a un fragmento en especifico, esto reduciría el tiempo de búsqueda del alumno y la actualización de este.
+
+Puedes ver un poco mas del tema en https://aws.amazon.com/es/blogs/database/sharding-with-amazon-relational-database-service/
+
+Otra opción seria usar la multi-tenencia, teniendo en cuenta que todas las tablas estan en un sola base de datos, se podria decir que existen muchos colegios con sus propios alumnos, entonces se podria proponer tener una base de datos por cliente(colegios).
+
+Y por último se podria aumentar la potencia en el hardware del servidor, sin embargo no siempre garantiza que sera mucho mas óptimo.
+
+### Comentarios
+
+- Utilize cz-conventional-changelog ya que me permite utilizar mejor el formato de commits.
+- Utilize un reducer en la logica de búsqueda por nombre de paises.
+- Opte por crear una paginación de paises, ya que el número de este era largo y el renderizado de este no era óptimo.✌
