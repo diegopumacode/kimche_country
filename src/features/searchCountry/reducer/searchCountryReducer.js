@@ -15,11 +15,12 @@ export const searchCountryReducer = (state, action) => {
     case 'SET_COUNTRIES': {
       const { countries, loading } = action.payload;
       return {
-        ...state, countries, filterCountries: [], loading,
+        ...state, countries, loading, filterCountries: countries,
       };
     }
     case 'SEARCH_BY_NAME': {
       const pattern = /^[A-Z-a-z]+$/i;
+      if (action.payload.length === 0) return { ...state, filterCountries: state.countries };
       if (pattern.test(action.payload)) {
         const filterByName = action.payload.length > 0 ? state.countries.filter(({ name }) => name.toLowerCase().match(`^${action.payload.toLowerCase()}`)) : state.countries;
         return { ...state, filterCountries: filterByName };
